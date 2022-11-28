@@ -6,8 +6,5 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "arrowParens": "avoid",
-  "proseWrap": "always",
-  "transformers": {
-  "*.hbs": ["parcel-transformer-hbs"]
-}
+  "proseWrap": "always"
 }
