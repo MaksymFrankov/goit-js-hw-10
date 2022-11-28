@@ -1,4 +1,5 @@
 import './css/styles.css';
+import debounce from "lodash.debounce";
 
 const DEBOUNCE_DELAY = 300;
 // fetchCountries(name)
@@ -22,12 +23,12 @@ const refs = {
 };
 import countryCardTpl from './tamplates/country-card.hbs';
 
-refs.searchForm.addEventListener('input', onInput);
+refs.searchForm.addEventListener('input', debounce(onInput,DEBOUNCE_DELAY));
 
 function onInput(e) {
     e.preventDefault();
     // console.log(refs.searchForm.value);
-    fetchCountry(refs.searchForm.value)
+    fetchCountry(refs.searchForm.value.trim())
     .then(renderCountryCard)
     .catch(onFetchError);
 }
