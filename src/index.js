@@ -69,7 +69,7 @@ function renderCountryCard(countriesData) {
 }
 
 function onFetchError(error) {
-    console.log('Somthing go wrong')
+    console.log('Somthing go wrong' + error)
 }
 
 
