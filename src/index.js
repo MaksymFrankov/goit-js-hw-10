@@ -57,7 +57,7 @@ function renderCountryCard(countriesData) {
     }
     else if (countriesData.length < 10 && countriesData.length >= 2)
     {
-        // console.log(countriesData)
+        console.log(countriesData)
         markupList = countryCardList(countriesData);
         console.log(markupList);
         refs.countryContainer.innerHTML = markupList;
