@@ -58,14 +58,14 @@ function renderCountryCard(countriesData) {
     else if (countriesData.length < 10 && countriesData.length >= 2)
     {
         // console.log(countriesData)
-        markup = countryCardList(countriesData);
-        console.log(markup);
-        refs.countryContainer.innerHTML = markup;
+        markupList = countryCardList(countriesData);
+        console.log(markupList);
+        refs.countryContainer.innerHTML = markupList;
     }
     else if (countriesData.length === 1)
     {
-        const markupList = countryCardTpl(countriesData[0]);
-        refs.countryContainer.innerHTML = markupList;
+        const markupCountry= countryCardTpl(countriesData[0]);
+        refs.countryContainer.innerHTML = markupCountry;
     }
 }
 
