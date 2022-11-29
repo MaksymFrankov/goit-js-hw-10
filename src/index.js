@@ -3,7 +3,7 @@ import debounce from "lodash.debounce";
 import countryCardTpl from './tamplates/country-card.hbs';
 import countryCardList from './tamplates/countrys-list.hbs';
 import Notiflix from 'notiflix';
-
+import { fetchCountry } from './fetchCountry.js';
 
 const refs = {
     searchForm: document.querySelector('#search-box'),
@@ -30,20 +30,20 @@ function onInput(e) {
 }
 
 
-function fetchCountry(countryName) {
-    const url = `https://restcountries.com/v3.1/name/${countryName}`
-    return fetch(url)
-        .then(res => {
-            if (res.ok)
-            { return res.json() }
-            else
-            {
-                const markup = '';
-                refs.countryContainer.innerHTML = markup;
-                Notiflix.Notify.failure('Oops, there is no country with that name')
-            }
-        })
-}
+// function fetchCountry(countryName) {
+//     const url = `https://restcountries.com/v3.1/name/${countryName}`
+//     return fetch(url)
+//         .then(res => {
+//             if (res.ok)
+//             { return res.json() }
+//             else
+//             {
+//                 const markup = '';
+//                 refs.countryContainer.innerHTML = markup;
+//                 Notiflix.Notify.failure('Oops, there is no country with that name')
+//             }
+//         })
+// }
 
 function renderCountryCard(countriesData) {
     if (countriesData.length >= 10) {
