@@ -58,9 +58,9 @@ function renderCountryCard(countriesData) {
     else if (countriesData.length < 10 && countriesData.length >= 2)
     {
         console.log(countriesData);
-        markupList = countryCardList(countriesData[0,1,2,3,4,5,6,7,8,9]);
-        console.log(markupList);
-        refs.countryContainer.innerHTML = markupList;
+        // markupList = countryCardList(countriesData[0,1,2,3,4,5,6,7,8,9]);
+        // console.log(markupList);
+        refs.countryContainer.innerHTML = countryCardList(countriesData);
     }
     else if (countriesData.length === 1)
     {
