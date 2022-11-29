@@ -18,7 +18,6 @@ refs.searchForm.addEventListener('input', debounce(onInput,DEBOUNCE_DELAY));
 
 function onInput(e) {
     e.preventDefault();
-    // console.log(refs.searchForm.value);
     if (refs.searchForm.value.trim()) {
         fetchCountry(refs.searchForm.value.trim())
             .then(renderCountryCard)
@@ -44,54 +43,25 @@ function fetchCountry(countryName) {
                 Notiflix.Notify.failure('Oops, there is no country with that name')
             }
         })
-    // .then(renderCountryCard)
-    // .catch(err => console.log('Error' + err)); 
 }
 
 function renderCountryCard(countriesData) {
-    if (countriesData.length >= 10)
-    {
+    if (countriesData.length >= 10) {
         const markup = '';
         refs.countryContainer.innerHTML = markup;
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.')
     }
-    else if (countriesData.length < 10 && countriesData.length >= 2)
-    {
-        console.log(countriesData);
-        // markupList = countryCardList(countriesData[0,1,2,3,4,5,6,7,8,9]);
-        // console.log(markupList);
+
+    else if (countriesData.length < 10 && countriesData.length >= 2) {
         refs.countryContainer.innerHTML = countryCardList(countriesData);
     }
-    else if (countriesData.length === 1)
-    {
+        
+    else if (countriesData.length === 1) {
         const markupCountry = countryCardTpl(countriesData[0]);
         refs.countryContainer.innerHTML = markupCountry;
     }
 }
 
 function onFetchError(error) {
-    console.log('Somthing go wrong' + error)
+    console.log('Somthing go wrong' + " " + error)
 }
-
-
-// fetchCountries(name)
-
-// fetch('https://restcountries.com/v3.1/name/peru')
-//     .then(function (res) {
-//         return res.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     })
-//     .catch(function (err) {
-//         console.log('error' + err);
-//     })
-
-// let countries;
-
-// function initialize(countriesData) {
-//     const markup = countryCardTpl(countriesData[0]);
-//     console.log(countriesData[0].languages);
-//     refs.countryContainer.innerHTML = markup;
-//     console.log(markup);
-// }
